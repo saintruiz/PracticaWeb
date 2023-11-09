@@ -1,21 +1,28 @@
 from datetime import datetime, time
 
-def separar(string):
-    lista=string.split()
-    return lista
-N=int(input())
-red_social=input()
-contador_horas=0
-contador_veces_redsocial=0
-for _ in range(N):
-    string=input()
-    lista=separar(string)
-    if red_social in lista[3]:
-        hora_inicio= datetime.strptime(lista[1], '%H:%M:%S')
-        hora_final=datetime.strptime(lista[2], '%H:%M:%S')
-        horas=((hora_final-hora_inicio).seconds)/3600
-        contador_veces_redsocial+=1
+def engagement(fecha):
+    fecha_formato = datetime.strptime(fecha, '%Y-%m-%d %H:%M:%S')
+    if fecha_formato.weekday() == 1:  # 1 representa el martes
+        if time(0,0) <fecha_formato.time()< time(4,59,59) or time(23,0) <fecha_formato.time()< time(23,59,59):
+            return "Martes: Engagement medio bajo"
+        elif time(5,0) <fecha_formato.time()< time(6,59,59) or time(16,0) <fecha_formato.time()< time(23,59,59):
+            return "Martes: Engagement medio"
+        elif time(7,0) <fecha_formato.time()< time(7,59,59) or time(14,0) <fecha_formato.time()< time(15,59,59):
+            return "Martes: Engagement medio alto"
+        elif time(8,0) <fecha_formato.time()< time(13,59,59):
+            return "Martes: Engagement alto"
+    else:
+        if time(0,0) <fecha_formato.time()< time(4,59,59) or time(23,0) <fecha_formato.time()< time(23,59):
+            return "Otro dia: Engagement bajo"
+        else:
+            return "Otro dia: Sin información"
+    
 
+
+N=int(input())
+for _ in range(N):
+    fecha=input()
+    print(engagement(fecha))
 
 
 
