@@ -1,28 +1,19 @@
-from datetime import datetime, time
+from datetime import datetime
 
-def engagement(fecha):
-    fecha_formato = datetime.strptime(fecha, '%Y-%m-%d %H:%M:%S')
-    if fecha_formato.weekday() == 1:  # 1 representa el martes
-        if time(0,0) <fecha_formato.time()< time(4,59,59) or time(23,0) <fecha_formato.time()< time(23,59,59):
-            return "Martes: Engagement medio bajo"
-        elif time(5,0) <fecha_formato.time()< time(6,59,59) or time(16,0) <fecha_formato.time()< time(23,59,59):
-            return "Martes: Engagement medio"
-        elif time(7,0) <fecha_formato.time()< time(7,59,59) or time(14,0) <fecha_formato.time()< time(15,59,59):
-            return "Martes: Engagement medio alto"
-        elif time(8,0) <fecha_formato.time()< time(13,59,59):
-            return "Martes: Engagement alto"
-    else:
-        if time(0,0) <fecha_formato.time()< time(4,59,59) or time(23,0) <fecha_formato.time()< time(23,59):
-            return "Otro dia: Engagement bajo"
-        else:
-            return "Otro dia: Sin información"
+ #Sismicidad histórica 
+def convertir_a_fecha(string):
+    fecha=datetime.strptime(string, '%Y-%m-%d %H:%M:%S')
+    return fecha
+def diferencia_fechas(fecha1, fecha2):
+    diferencia= fecha2-fecha1
+    return diferencia
+def tiempo_entre_eventos(N):
+    lista_fechas=[]
+    for _ in range(N):
+        fecha=input()
+        lista_fechas.append(fecha)
     
 
 
+
 N=int(input())
-for _ in range(N):
-    fecha=input()
-    print(engagement(fecha))
-
-
-
