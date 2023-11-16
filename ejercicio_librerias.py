@@ -1,19 +1,20 @@
-from datetime import datetime
-
- #Sismicidad histórica 
-def convertir_a_fecha(string):
-    fecha=datetime.strptime(string, '%Y-%m-%d %H:%M:%S')
-    return fecha
-def diferencia_fechas(fecha1, fecha2):
-    diferencia= fecha2-fecha1
-    return diferencia
-def tiempo_entre_eventos(N):
-    lista_fechas=[]
-    for _ in range(N):
-        fecha=input()
-        lista_fechas.append(fecha)
+def creacion_matriz(string):
+    lista=[]
+    for i in string:
+        lista.append(i)
+    if (lista[0] == lista[2]) and ((int(lista[0]))%2!=0):
+        matriz=[]
+        for _ in range (int(lista[0])):
+            fila=[]
+            for _ in range (int(lista[0])):
+                num=int(input())
+                fila.append(num)
+            matriz.append(fila)                
+        return matriz
+    else:
+        return "El numero de filas debe ser igual al numero de columnas y este valor debe ser impar"
     
 
-
-
-N=int(input())
+entrada=input()
+resultado=creacion_matriz(entrada)
+print(resultado)
