@@ -3,6 +3,7 @@ def suma_diagonal_principal(matriz):
     for i in range(0, len(matriz[0])):
         sumatoria+=matriz[i][i]
     return sumatoria
+
 def mult_diagonal_secundaria(matriz):
     multiplicacion=1
     longitud=len(matriz[0])
@@ -19,6 +20,7 @@ def suma_elmnts_mitad(matriz):
     for i in range(0, longitud):
         sumatoria+=matriz[mitad][i]
     return sumatoria
+
 def mult_elmnt_mitad(matriz):
     longitud=len(matriz[0])
     mitad=int(longitud/2)
