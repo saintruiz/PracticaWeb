@@ -17,4 +17,5 @@ Estado del apartamento: {self.estadoApto}""")
     
 
 apartamentoEnvigado=apartamento('Caterine Ruiz', 'ed2556', 'Nuevo')
+apartamentoEnvigado.cambioEstado()
 print(apartamentoEnvigado.caracteristicasApto())
