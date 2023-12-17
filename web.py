@@ -5,6 +5,16 @@ class apartamento():
         self.estadoApto=estadoApto
 
     def cambioEstado(self):
-        if self.estadoApto=="Nuevo":
-            self.estadoApto="Usado"
+        if self.estadoApto=='Nuevo':
+            self.estadoApto='Usado'
     
+    def caracteristicasApto(self):
+        caracteristicas=(f"""
+Propietario del apartamento: {self.nombrePropietario}
+Identificacion del apartamento: {self.idInmueble}
+Estado del apartamento: {self.estadoApto}""")
+        return caracteristicas
+    
+
+apartamentoEnvigado=apartamento('Caterine Ruiz', 'ed2556', 'Nuevo')
+print(apartamentoEnvigado.caracteristicasApto())
